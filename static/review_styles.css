@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#tidbitContainer {
+    text-align: center; 
+    margin: 24px;
+    margin-top: 10vh;  
+    margin-left: auto;  /* Center the block horizontally */
+    margin-right: auto;
+    max-width: 60%;     /* Adjust the width as needed */
+    padding: 20px;
+    word-wrap: break-word; /* Ensure long words don't overflow */
+    box-sizing: border-box;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    /* Button styling */
+}
