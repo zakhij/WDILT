@@ -6,7 +6,12 @@ from datetime import datetime, date
 from .models import TidbitData, LearningTidbit
 from typing import List
 
+# Helper functions
 def access_sheet(config_path) -> gspread.Worksheet:
+    """
+    Abstracts away the work of accessing the Google sheet that
+    stores the WDILT tidbit data.
+    """
     config = ConfigParser()
     config.read(config_path)
     credentials_json = config.get('Credentials', 'google_credentials')
@@ -14,8 +19,11 @@ def access_sheet(config_path) -> gspread.Worksheet:
     gc = gspread.service_account(filename=credentials_json)
     return gc.open(sheet_name).sheet1
     
-
 def get_tidbit_data(index, row_dict):
+    """
+    Creates a TidbitData object from the row in the sheet. Used
+    for data validation purposes.
+    """
     try:
         return TidbitData(
             row_num=index,
@@ -27,9 +35,12 @@ def get_tidbit_data(index, row_dict):
         return None
 
 def check_sheet_for_reviews(sheet: gspread.Worksheet) -> List[LearningTidbit]:
+    """
+    Goes through the sheet, checks each row, and returns a list of
+    all tidbits that are up for review.
+    """
     reviewable_tidbits = []
     for index, row_dict in enumerate(sheet.get_all_records(), start=2):
-        print("Checking row:", index)
         tidbit = get_tidbit_data(index, row_dict)
         if tidbit is None:
             continue
@@ -38,20 +49,26 @@ def check_sheet_for_reviews(sheet: gspread.Worksheet) -> List[LearningTidbit]:
     
     return reviewable_tidbits
 
+# Main functions used by app in main.py
 def update_review_counter(tidbit: LearningTidbit) -> None:
+    """
+    Leverages the update_review_counter method in the LearningTidbit class
+    to update the review counter in the sheet of the inputted tidbit object.
+    """
     sheet = access_sheet('settings.ini')
-    
     tidbit.update_review_counter(sheet)
 
-
 def get_tidbits_to_review() -> List[LearningTidbit]:
-    # Get the directory of the current script
-
+    """
+    Gets the tidbits that need to be reviewed of the Google sheet.
+    Separate from check_sheet_for_reviews to abstract away the sheet input.
+    """
     sheet = access_sheet('settings.ini')
-    print(sheet)
-
     return check_sheet_for_reviews(sheet)
 
 def add_new_tidbit(tidbit_text: str) -> None:
+    """
+    Adds a new tidbit to the WDILT Google sheet based on the inputted text.
+    """
     sheet = access_sheet('settings.ini')
     sheet.append_row([0,str(date.today()),tidbit_text])

@@ -2,21 +2,28 @@ from datetime import date, timedelta
 from pydantic import BaseModel
 import gspread
 
-
 class TidbitData(BaseModel):
+    """
+    Data validation model that ensures that the data in each Google sheet
+    row is in the correct format before creating a LearningTidbit object. 
+    """
     row_num: int
     tidbit: str
     review_counter: int
     last_review_date: date
 
 class LearningTidbit:
-    #Hardcoded constants
+    """
+    Class that represents each tidbit, which is found in each row. Data validation
+    is done in the TidbitData model, which is used as an input.
+    """
+    # Hardcoded constants
     SCALE1_INIT = 3
     SCALE2 = 4
     REVIEW_COUNTER_COL = 1
     LAST_REVIEW_DATE_COL = 2
     def __init__(self, tidbit_data: TidbitData):
-        #Extracting data from TidbitData
+        # Extracting data from TidbitData
         self.row_num = tidbit_data.row_num
         self.tidbit = tidbit_data.tidbit
         self.review_counter = tidbit_data.review_counter
@@ -25,7 +32,8 @@ class LearningTidbit:
     def check_for_review(self) -> None:
         """
         Checks whether the tidbit needs to be reviewed. If so, it prints
-        the tidbit to the console and updates the review counter."""
+        the tidbit to the console and updates the review counter.
+        """
         next_review_date = self.calc_next_review_date()
         if next_review_date <= date.today():
             return True
