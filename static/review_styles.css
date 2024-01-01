@@ -4,6 +4,7 @@ body {
     padding: 0;
 }
 
+
 #tidbitContainer {
     text-align: center; 
     margin: 24px;
@@ -14,7 +15,47 @@ body {
     padding: 20px;
     word-wrap: break-word; /* Ensure long words don't overflow */
     box-sizing: border-box;
+    
+    border: 2px solid #ccc; /* Add a 2px solid grey border */
+    background-color: #f0f0f0; /* Add a slightly grey background color */
 }
+
+#previousButton, #nextButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the buttons vertically */
+    margin-top: 20px; /* Add spacing between the buttons and the container */
+}
+
+
+
+#finishButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px; /* Add margin to move the Finish button downwards */
+}
+
+.review-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#indexDisplay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+#homeButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 
 button {
     margin: 5px;

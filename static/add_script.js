@@ -1,15 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Grab references to the HTML elements
     const form = document.getElementById('tidbitForm');
     const tidbitText = document.getElementById('tidbitText');
+    const homeButton = document.getElementById('homeButton');
 
-    document.getElementById('homeButton').addEventListener('click', () => {
+    // Redirect user to homepage if they click on the home button
+    homeButton.addEventListener('click', () => {
         window.location.href = '/';
     });
 
+    /*
+    When the form is submitted, send the tidbit text the user
+    wrote in the tidbit textbox to the server to be added
+    as a new tidbit and clear the textbox
+    */
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent the default form submission
-
-        const text = tidbitText.value;
 
         fetch('/submit-tidbit', {
             method: 'POST',

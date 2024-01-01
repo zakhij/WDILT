@@ -1,0 +1,12 @@
+.title-card {
+    font-weight: bold;
+    text-align: center;
+  }
+
+#addTidbitsButton,
+#reviewTidbitsButton {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 30px auto;
+  display: block;
+}

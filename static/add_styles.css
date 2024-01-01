@@ -1,0 +1,27 @@
+body {
+    text-align: center; /* Center-aligns the content */
+    font-family: Arial, sans-serif; /* Optional: sets a font */
+}
+
+#tidbitForm {
+    margin: 0 auto; /* Centers the form in the page */
+    width: 80%; /* Adjusts the width of the form */
+    max-width: 600px; /* Maximum width */
+}
+
+#tidbitText {
+    width: 100%; /* Makes the textarea span the full width of the form */
+    height: 180px; /* Sets a fixed height for the textarea */
+    margin-bottom: 20px; /* Adds some space below the textarea */
+    padding: 10px; /* Adds some padding inside the textarea */
+    font-size: 16px; /* Increases the font size */
+    box-sizing: border-box; /* Includes padding and border in the width */
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+button {
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the buttons */
+    padding: 10px 20px; /* Adds padding inside the buttons */
+    font-size: 16px; /* Sets the font size of the button text */
+    margin: 10px; /* Adds margin around the buttons */
+}
