@@ -19,7 +19,7 @@ class LearningTidbit:
     """
     # Hardcoded constants
     SCALE1_INIT = 3
-    SCALE2 = 4
+    SCALE2 = 2
     REVIEW_COUNTER_COL = 1
     LAST_REVIEW_DATE_COL = 2
     def __init__(self, tidbit_data: TidbitData):
