@@ -2,8 +2,17 @@
 
 What Did I Learn Today: A personal learning retention system designed around spaced repetition. 
 
-![Screenshot of home page](images/wdilt_home_page.png)
+## Features
+TK
 
-![Screenshot of add tidbits page](images/wdilt_new_tidbits.png)
+## Screenshots
 
-![Screenshot of review page](images/wdilt_review.png)
+### Home Page
+<img src="images/wdilt_home_page.png" width="600" alt="Home">
+
+### Add New Tidbits Page
+<img src="images/wdilt_new_tidbits.png" width="600" alt="New Tidbits">
+
+### Review Tidbits Page
+<img src="images/wdilt_review.png" width="600" alt="Review">
+
