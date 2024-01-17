@@ -15,7 +15,6 @@ body {
     padding: 20px;
     word-wrap: break-word; /* Ensure long words don't overflow */
     box-sizing: border-box;
-    
     border: 2px solid #ccc; /* Add a 2px solid grey border */
     background-color: #f0f0f0; /* Add a slightly grey background color */
 }
@@ -49,9 +48,9 @@ body {
 .button-container button {
     margin: 10px;
     padding: 10px 20px;
-    font-size: 16px; /* Increase the font size */
-    border-radius: 5px; /* Optional: rounded corners for the button */
-    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer;
 }
 
 #indexDisplay {
